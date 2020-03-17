@@ -45,6 +45,12 @@ public class MoveStraightLoop : MonoBehaviour
             case BACK:
                 transform.Translate(0, 0, -translation);
                 break;
+            case UP:
+                transform.Translate(0, translation, 0);
+                break;
+            case DOWN:
+                transform.Translate(0, -translation, 0);
+                break;
         }
 
     }

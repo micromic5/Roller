@@ -3,5 +3,7 @@
     FRONT,
     BACK,
     LEFT,
-    RIGHT
+    RIGHT,
+    UP,
+    DOWN
 }
