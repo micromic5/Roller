@@ -1,14 +1,23 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
+using UnityEngine.UI;
 
 public class Clock : MonoBehaviour
 {
-    public float timeFromStart = 0f;
-    
+    private float timeFromStart = 0f;
+    private Text guiText;
+
+    private void Start()
+    {
+        guiText = GetComponent<Text>();
+    }
     // Update is called once per frame
     void Update()
     {
         timeFromStart += Time.deltaTime;
+    }
+
+    private void FixedUpdate()
+    {
+        guiText.text = timeFromStart.ToString();
     }
 }

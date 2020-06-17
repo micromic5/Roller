@@ -9,7 +9,7 @@ public class KillPlayerTrigger : MonoBehaviour
     private void OnTriggerEnter(Collider other)
     {
         Debug.Log(other);
-        if(other.tag == "Player")
+        if (other.tag == "Player")
         {
             Scene scene = SceneManager.GetActiveScene(); 
             SceneManager.LoadScene(scene.name);
