@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public interface StomachEventHolder : EventHolder
+public interface StomachEventHolder
 {
     void registerSubscriber(StomachSubscriber subscriber);
     void removeSubscripter(StomachSubscriber subscriber);

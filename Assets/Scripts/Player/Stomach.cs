@@ -1,12 +1,9 @@
-﻿using System;
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine.SceneManagement;
+﻿using System.Collections.Generic;
 
-public class Stomach : EventHolder
+public class Stomach : StomachEventHolder
 {
     private int stomachValue;
-    private List<EventSubscriber> stomachSubcriberLitst = new List<EventSubscriber>();
+    private List<StomachSubscriber> stomachSubcriberLitst = new List<StomachSubscriber>();
 
     public Stomach(int startValue)
     {
@@ -14,7 +11,7 @@ public class Stomach : EventHolder
     }
 
     public void increaseStomachValue(int value)
-    {        
+    {
         if (stomachValue + value >= 100)
         {
             stomachValue = 100;
@@ -31,7 +28,6 @@ public class Stomach : EventHolder
         if(stomachValue - value <= 0)
         {
             stomachValue = 0;
-            endGame();
         }
         else
         {
@@ -44,26 +40,20 @@ public class Stomach : EventHolder
         return stomachValue/100f;
     }
 
-    public new void registerSubscriber(EventSubscriber subscriber)
+    public new void registerSubscriber(StomachSubscriber subscriber)
     {
         stomachSubcriberLitst.Add(subscriber);
     }
 
-    public new void removeSubscripter(EventSubscriber subscriber)
+    public new void removeSubscripter(StomachSubscriber subscriber)
     {
         stomachSubcriberLitst.Remove(subscriber); 
     }
 
     public new void notifySubscribers()
     {
-        foreach (EventSubscriber subscriber in stomachSubcriberLitst){
-            subscriber.reciveEvent();
+        foreach (StomachSubscriber subscriber in stomachSubcriberLitst){
+            subscriber.reciveEvent(stomachValue);
         }
-    }
-
-    private void endGame()
-    {
-        Scene scene = SceneManager.GetActiveScene(); 
-        SceneManager.LoadScene(scene.name);
     }
 }

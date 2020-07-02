@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public interface StomachSubscriber : EventSubscriber
+public interface StomachSubscriber
 {
-    new void reciveEvent();
+    new void reciveEvent(int stomachValue);
 }

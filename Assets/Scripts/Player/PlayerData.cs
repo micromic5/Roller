@@ -9,10 +9,14 @@ public class PlayerData : MonoBehaviour, StomachSubscriber
     private Slider stomachSlider;
     [SerializeField]
     private int startStomachValue;
-    // Start is called before the first frame update
-    void Start()
+
+    private void Awake()
     {
         stomach = new Stomach(startStomachValue);
+    }
+
+    void Start()
+    {        
         stomach.registerSubscriber(this);
         InvokeRepeating("decreaseStomach", 4.0f, 4.0f);
     }
@@ -22,7 +26,7 @@ public class PlayerData : MonoBehaviour, StomachSubscriber
         stomach.decreaseStomachValue(5);
     }
 
-    public void reciveEvent()
+    public void reciveEvent(int stomachValue)
     {
         stomachSlider.value = stomach.getStomachValue();
     }
