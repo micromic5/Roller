@@ -9,7 +9,6 @@ public class SwitchToMeshFromArray : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        GetComponent<MeshFilter>().mesh = meshArray[Random.RandomRange(0, meshArray.Count - 1)];
-            
+        GetComponent<MeshFilter>().mesh = meshArray[Random.RandomRange(0, meshArray.Count)];
     }
 }

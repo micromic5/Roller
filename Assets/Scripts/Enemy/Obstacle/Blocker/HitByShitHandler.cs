@@ -21,5 +21,6 @@ public class HitByShitHandler : MonoBehaviour
         score.increaseScore(pointsWorth);
         GetComponent<MoveStraight>().enabled = false;
         GetComponent<CapsuleCollider>().enabled = false;
+        GetComponentInChildren<Animator>().SetBool("HitByShit" , true);
     }
 }

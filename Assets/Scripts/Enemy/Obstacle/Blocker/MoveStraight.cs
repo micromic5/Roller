@@ -29,4 +29,9 @@ public class MoveStraight : MonoBehaviour
                 break;
         }        
     }
+
+    public float getSpeed()
+    {
+        return speed;
+    }
 }
