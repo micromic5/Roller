@@ -11,6 +11,9 @@ GameObject:
   - component: {fileID: 4202130902894980}
   - component: {fileID: 33313641749024866}
   - component: {fileID: 23205945808381882}
+  - component: {fileID: -4541133764496711982}
+  - component: {fileID: 6080033639767260753}
+  - component: {fileID: -7929706865259972458}
   m_Layer: 0
   m_Name: rpgpp_lt_tree_02
   m_TagString: Untagged
@@ -79,3 +82,48 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+--- !u!114 &-4541133764496711982
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1458573784885960}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: be8008ef828f9754a877ead0db29dd79, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  xAxis: 0
+  yAxis: 1
+  zAxis: 0
+--- !u!114 &6080033639767260753
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1458573784885960}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c90efc2997527a445ab526432431d3e5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  spawnSizeMin: 0.6
+  spwanSizeMax: 1.4
+--- !u!114 &-7929706865259972458
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1458573784885960}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aef3382abe6233348a0b1e5fa0955841, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  xAxis: 1
+  yAxis: 0
+  zAxis: 1
+  offset: 0.5

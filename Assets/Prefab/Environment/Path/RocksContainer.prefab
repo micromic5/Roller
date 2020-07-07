@@ -59,7 +59,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 301f975914f5c24418e95a71290b8a5e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  selfDestructionTime: 13
+  selfDestructionTime: 20
 --- !u!1001 &6882149938614005348
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -75,12 +75,12 @@ PrefabInstance:
     - target: {fileID: -7899517913342989816, guid: e1154cf6ac27b2f45b4ae35582e7e363,
         type: 3}
       propertyPath: zAxis
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: -7899517913342989816, guid: e1154cf6ac27b2f45b4ae35582e7e363,
         type: 3}
       propertyPath: xAxis
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: -1226889693230069479, guid: e1154cf6ac27b2f45b4ae35582e7e363,
         type: 3}
