@@ -14,6 +14,8 @@ public class SpawnObject : MonoBehaviour
     private float spawnTimer = 0f;
     [SerializeField]
     private float spawnTimeChanger = -0.1f;
+    [SerializeField]
+    private float spawnTimerRandomOffsetToZero = 0f;
 
     // Update is called once per frame
     void Update()
@@ -25,7 +27,7 @@ public class SpawnObject : MonoBehaviour
             spawnedObject.transform.position = gameObject.transform.position;
             spawnTimer = timeBetweenSpawn = (timeBetweenSpawn >= 0.5f)
                 ? timeBetweenSpawn + spawnTimeChanger
-                : timeBetweenSpawn;
+                : timeBetweenSpawn + Random.Range(0, spawnTimerRandomOffsetToZero);
         }
     }
 }
