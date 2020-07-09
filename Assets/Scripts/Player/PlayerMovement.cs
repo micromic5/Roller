@@ -7,9 +7,14 @@ public class PlayerMovement : MonoBehaviour
 {
     [SerializeField]
     public float speed = 10.0f;
+    private float rotationSpeed = 5f;
+    private bool rotationDirectionLeft = true;
     private Keyboard kb;
     private bool moveLeft = false;
     private bool moveRight = false;
+    [SerializeField]
+    private GameObject playerModel;
+    private float maxRotation = 45;
 
     private void Start()
     {
@@ -22,9 +27,22 @@ public class PlayerMovement : MonoBehaviour
         if (kb.aKey.isPressed || moveLeft)
         {
             translation =  -speed;
-        }else if (kb.dKey.isPressed || moveRight)
+            rotatePlayer(rotationSpeed);
+            rotationDirectionLeft = true;
+        }
+        else if (kb.dKey.isPressed || moveRight)
         {
             translation = speed;
+            rotatePlayer(-rotationSpeed);
+            rotationDirectionLeft = false;
+
+        }
+        else if(!(playerModel.transform.rotation.eulerAngles.x < 10) || 
+            !(playerModel.transform.rotation.eulerAngles.x < 355))
+        {
+            Debug.Log(playerModel.transform.rotation.eulerAngles);
+            float rotationSpeedLocal = rotationDirectionLeft ? -rotationSpeed: rotationSpeed;            
+            playerModel.transform.RotateAround(new Vector3(0, 0, 1), rotationSpeedLocal * Time.deltaTime);
         }
         
         // Make it move 10 meters per second instead of 10 meters per frame...
@@ -35,6 +53,24 @@ public class PlayerMovement : MonoBehaviour
 
         moveLeft = false;
         moveRight = false;
+    }
+
+    private void rotatePlayer(float rotationSpeed)
+    {
+        
+
+        if (playerModel.transform.rotation.eulerAngles.x >= 320 
+            || playerModel.transform.rotation.eulerAngles.x <= 45)
+        {
+            playerModel.transform.RotateAround(new Vector3(0, 0, 1), rotationSpeed * Time.deltaTime);
+           // playerModel.transform.Rotate(new Vector3(rotationSpeed * Time.deltaTime, 0, 0));
+        }
+        else if ((rotationSpeed > 0 && !rotationDirectionLeft)
+           || (rotationSpeed < 0 && rotationDirectionLeft))
+        {
+            rotationSpeed *= 1.5f;
+            playerModel.transform.RotateAround(new Vector3(0, 0, 1), rotationSpeed * Time.deltaTime);
+        }
     }
 
     public void setMoveLeftTrue()

@@ -34,4 +34,9 @@ public class MoveStraight : MonoBehaviour
     {
         return speed;
     }
+
+    public void setSpeed(float newSpeed)
+    {
+        speed = newSpeed;
+    }
 }
