@@ -158,6 +158,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   shit: {fileID: 1978807016212145553, guid: c1500723d4c3572498b9cfd068eef8e7, type: 3}
   spawnPosition: {fileID: 2019669467065323998}
+  shitParticles: {fileID: 0}
 --- !u!114 &2019669465407298292
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -307,6 +308,38 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 8417361359673230750, guid: ebb82be6b3a19274d9b52fb0f173791e,
+        type: 3}
+      propertyPath: m_Materials.Array.data[4]
+      value: 
+      objectReference: {fileID: 2100000, guid: 0a4cf530d74045541b84192a8370bc2b, type: 2}
+    - target: {fileID: 8417361359673230750, guid: ebb82be6b3a19274d9b52fb0f173791e,
+        type: 3}
+      propertyPath: m_Materials.Array.data[5]
+      value: 
+      objectReference: {fileID: -4137706188410003709, guid: 621727079f459f949a4685573d2b8e2e,
+        type: 3}
+    - target: {fileID: 8417361359673230750, guid: ebb82be6b3a19274d9b52fb0f173791e,
+        type: 3}
+      propertyPath: m_Materials.Array.data[2]
+      value: 
+      objectReference: {fileID: -806272485075938019, guid: 621727079f459f949a4685573d2b8e2e,
+        type: 3}
+    - target: {fileID: 8417361359673230750, guid: ebb82be6b3a19274d9b52fb0f173791e,
+        type: 3}
+      propertyPath: m_Materials.Array.data[1]
+      value: 
+      objectReference: {fileID: 2100000, guid: 92b2e48e71e7288439d396f26525d7c9, type: 2}
+    - target: {fileID: 8417361359673230750, guid: ebb82be6b3a19274d9b52fb0f173791e,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 7ea54b9eb35c11e47b523c9c2b8e47a7, type: 2}
+    - target: {fileID: 8417361359673230750, guid: ebb82be6b3a19274d9b52fb0f173791e,
+        type: 3}
+      propertyPath: m_Materials.Array.data[3]
+      value: 
+      objectReference: {fileID: 2100000, guid: 7ea54b9eb35c11e47b523c9c2b8e47a7, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ebb82be6b3a19274d9b52fb0f173791e, type: 3}
 --- !u!4 &8784747826606330165 stripped

@@ -12,9 +12,11 @@ GameObject:
   - component: {fileID: 1978807016212145558}
   - component: {fileID: 1978807016212145559}
   - component: {fileID: 1978807016212145552}
-  - component: {fileID: 1978807016212145556}
   - component: {fileID: 1978807016212145547}
   - component: {fileID: 9061149180391183091}
+  - component: {fileID: 4809134669422843176}
+  - component: {fileID: 5596518322837635504}
+  - component: {fileID: 6184797604119310783}
   m_Layer: 0
   m_Name: Shit
   m_TagString: Shit
@@ -29,13 +31,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1978807016212145553}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: -0.7071068, y: 0, z: 0, w: 0.7071068}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 35, y: 35, z: 35}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: -90, y: 0, z: 0}
 --- !u!33 &1978807016212145558
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -43,7 +45,7 @@ MeshFilter:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1978807016212145553}
-  m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+  m_Mesh: {fileID: 4711208715938537054, guid: e9e7efafad5997448af170e6e1c81b57, type: 3}
 --- !u!23 &1978807016212145559
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -62,7 +64,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 31321ba15b8f8eb4c954353edc038b1d, type: 2}
+  - {fileID: 2100000, guid: 811a2729811856f42b62d548d4bf704b, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -94,22 +96,8 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &1978807016212145556
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1978807016212145553}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a3f05a8924536da4c9f4ff7279eace78, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  speed: 5
-  direction: 5
+  m_Size: {x: 0.02, y: 0.02, z: 0.04}
+  m_Center: {x: 0, y: 0, z: 0.007}
 --- !u!54 &1978807016212145547
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -138,3 +126,52 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1d30f3670a4a4ec489df2191f84cc17b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  shitDecale: {fileID: 5551386898801805610, guid: 5645761bc26621a429d34fe132557323,
+    type: 3}
+--- !u!114 &4809134669422843176
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1978807016212145553}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b76a3bee77447ea4492cd712ab785caf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  prefabToSpawn: {fileID: 3157803793962454319, guid: 7c63675efff5b864e90b66a9ba5afaab,
+    type: 3}
+  amountOfPrefabsToSpawn: 3
+  randomDisplacementMin: -0.2
+  randomDisplacementMax: 0.2
+  randomSizeMin: 0.2
+  randomSizeMax: 0.4
+  randomRotationMin: 0
+  randomRotationMax: 15
+--- !u!114 &5596518322837635504
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1978807016212145553}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6bfb2769eb87f734da4d1bffac6b6a98, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  endSize: 35
+--- !u!114 &6184797604119310783
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1978807016212145553}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 301f975914f5c24418e95a71290b8a5e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  selfDestructionTime: 2

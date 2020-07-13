@@ -5,13 +5,15 @@ using UnityEngine.InputSystem;
 
 public class PlayerShit : MonoBehaviour
 {
-    private float shitterCooldown = 1f;
-    private float shitterCooldownCountDown = 0f;
-    private int decreaseAmount = 10;
     [SerializeField]
     private GameObject shit;
     [SerializeField]
     private Transform spawnPosition;
+    [SerializeField]
+    private ParticleSystem shitParticles;
+    private float shitterCooldown = 1f;
+    private float shitterCooldownCountDown = 0f;
+    private int decreaseAmount = 10;
     private Keyboard kb;
     private bool shitButtonClicked = false;
     private void Start()
@@ -31,6 +33,7 @@ public class PlayerShit : MonoBehaviour
                 spawnedObject.transform.position = spawnPosition.position;
                 shitterCooldownCountDown = 0;
                 shitButtonClicked = false;
+                shitParticles.Play();
             }
           }
           shitterCooldownCountDown += Time.deltaTime;

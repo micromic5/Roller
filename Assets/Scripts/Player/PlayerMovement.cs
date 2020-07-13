@@ -14,7 +14,6 @@ public class PlayerMovement : MonoBehaviour
     private bool moveRight = false;
     [SerializeField]
     private GameObject playerModel;
-    private float maxRotation = 45;
 
     private void Start()
     {
@@ -37,10 +36,9 @@ public class PlayerMovement : MonoBehaviour
             rotationDirectionLeft = false;
 
         }
-        else if(!(playerModel.transform.rotation.eulerAngles.x < 10) || 
+        else if(!(playerModel.transform.rotation.eulerAngles.x < 5) || 
             !(playerModel.transform.rotation.eulerAngles.x < 355))
         {
-            Debug.Log(playerModel.transform.rotation.eulerAngles);
             float rotationSpeedLocal = rotationDirectionLeft ? -rotationSpeed: rotationSpeed;            
             playerModel.transform.RotateAround(new Vector3(0, 0, 1), rotationSpeedLocal * Time.deltaTime);
         }
@@ -50,9 +48,6 @@ public class PlayerMovement : MonoBehaviour
 
         // Move translation along the object's z-axis
         transform.Translate(translation, 0, 0);
-
-        moveLeft = false;
-        moveRight = false;
     }
 
     private void rotatePlayer(float rotationSpeed)
@@ -73,14 +68,14 @@ public class PlayerMovement : MonoBehaviour
         }
     }
 
-    public void setMoveLeftTrue()
+    public void setMoveLeft(bool moveLeft)
     {
-        moveLeft = true;
+        this.moveLeft = moveLeft;
     }
 
-    public void setMoveRightTrue()
+    public void setMoveRight(bool moveRight)
     {
-        moveRight = true;
+        this.moveRight = moveRight;
     }
 
 }
