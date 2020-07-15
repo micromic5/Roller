@@ -14,7 +14,7 @@ public class PlayerMovement : MonoBehaviour
     private bool moveRight = false;
     [SerializeField]
     private GameObject playerModel;
-
+    private Vector3 startRotation = new Vector3(0, 90, 45);
     private void Start()
     {
         kb = InputSystem.GetDevice<Keyboard>();   
@@ -40,8 +40,7 @@ public class PlayerMovement : MonoBehaviour
             (playerModel.transform.rotation.eulerAngles.x < 350 && playerModel.transform.rotation.eulerAngles.x > 10) ||
             playerModel.transform.rotation.eulerAngles.y > 260)
         {
-            float rotationSpeedLocal = rotationDirectionLeft ? -rotationSpeed: rotationSpeed;            
-            playerModel.transform.RotateAround(new Vector3(0, 0, 1), rotationSpeedLocal * Time.deltaTime);
+            playerModel.transform.rotation = Quaternion.Lerp(playerModel.transform.rotation, Quaternion.Euler(startRotation.x, startRotation.y, startRotation.z), Time.deltaTime*rotationSpeed);
         }
         // Make it move 10 meters per second instead of 10 meters per frame...
         translation *= Time.deltaTime;
@@ -52,13 +51,10 @@ public class PlayerMovement : MonoBehaviour
 
     private void rotatePlayer(float rotationSpeed)
     {
-        
-
         if (playerModel.transform.rotation.eulerAngles.x >= 320 
             || playerModel.transform.rotation.eulerAngles.x <= 45)
         {
             playerModel.transform.RotateAround(new Vector3(0, 0, 1), rotationSpeed * Time.deltaTime);
-           // playerModel.transform.Rotate(new Vector3(rotationSpeed * Time.deltaTime, 0, 0));
         }
         else if ((rotationSpeed > 0 && !rotationDirectionLeft)
            || (rotationSpeed < 0 && rotationDirectionLeft))
