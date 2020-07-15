@@ -22,8 +22,12 @@ public class SpawnObject : MonoBehaviour
     private float randomSpawnOffsetMin = 0;
     [SerializeField]
     private float randomSpawnOffsetMax = 0;
-    
+    private ChangeSpeed changeSpeedScript;
 
+    private void Start()
+    {
+        changeSpeedScript = GetComponent<ChangeSpeed>();
+    }
     // Update is called once per frame
     void Update()
     {
@@ -32,6 +36,10 @@ public class SpawnObject : MonoBehaviour
         {
             GameObject spawnedObject = Instantiate(objectToSpawn, parentForSpawnedObject.transform);
             spawnedObject.transform.position = gameObject.transform.position;
+            if(changeSpeedScript != null)
+            {
+                spawnedObject.GetComponent<MoveStraight>().setSpeed(spawnedObject.GetComponent<MoveStraight>().getSpeed() + changeSpeedScript.getCurrentSpeed());
+            }
             if(spawnTimeChanger != 0)
             {
                 timeBetweenSpawn += calculateSpawnTimeChange();
