@@ -3,23 +3,37 @@ using System.Collections.Generic;
 using UnityEngine;
 using System.Linq;
 
-public class ShitTrigger : MonoBehaviour
+public class DiarrheaTrigger : MonoBehaviour
 {
     [SerializeField]
     private GameObject shitDecale;
-    private bool shouldDestroy = false;
+    private readonly static float baseTimeBetweenDiarrheaHits = .2f;
+    private float timeBetweenDiarrheaHits = .2f;
     private readonly static float halfPersonHeight = 1.2f;
+
+    void Update()
+    {
+        timeBetweenDiarrheaHits -= Time.deltaTime;
+    }
+    
+    private void OnTriggerStay(Collider other)
+    {
+        if(timeBetweenDiarrheaHits <= 0)
+        {
+            GameObject decale;
+            if (other.tag != "Blocker" && other.tag != "Player" && other.tag != "People" && other.tag != "Shit")
+            {
+                decale = instantiateDecale(transform.position);
+            }            
+            timeBetweenDiarrheaHits = baseTimeBetweenDiarrheaHits;
+        }        
+    }
 
     private void OnTriggerEnter(Collider other)
     {
-        GameObject decale;
-        if (other.tag != "Blocker" && other.tag != "Player" && other.tag != "People" && other.tag != "Shit")
+        if (other.tag == "People")
         {
-            decale = instantiateDecale(transform.position);
-            shouldDestroy = true;
-        }
-        else if (other.tag == "People")
-        {
+            GameObject decale;
             other.GetComponent<HitByShitHandler>().fire();
             decale = instantiateDecale(other.transform.position);
             Vector3 decalePosition = decale.transform.position;
@@ -28,13 +42,7 @@ public class ShitTrigger : MonoBehaviour
             {
                 moveStraight.setSpeed(1);
             }
-            shouldDestroy = true;
         }
-        if (shouldDestroy)
-        {
-            GameObject.Destroy(gameObject);
-        }
-                
     }
 
     private GameObject instantiateDecale(Vector3 position)

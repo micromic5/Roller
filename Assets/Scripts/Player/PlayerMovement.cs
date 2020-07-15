@@ -35,14 +35,14 @@ public class PlayerMovement : MonoBehaviour
             rotatePlayer(-rotationSpeed);
             rotationDirectionLeft = false;
 
-        }
-        else if(!(playerModel.transform.rotation.eulerAngles.x < 5) || 
-            !(playerModel.transform.rotation.eulerAngles.x < 355))
+        }        
+        else if(playerModel.transform.rotation.eulerAngles.x > 10  ||
+            (playerModel.transform.rotation.eulerAngles.x < 350 && playerModel.transform.rotation.eulerAngles.x > 10) ||
+            playerModel.transform.rotation.eulerAngles.y > 260)
         {
             float rotationSpeedLocal = rotationDirectionLeft ? -rotationSpeed: rotationSpeed;            
             playerModel.transform.RotateAround(new Vector3(0, 0, 1), rotationSpeedLocal * Time.deltaTime);
         }
-        
         // Make it move 10 meters per second instead of 10 meters per frame...
         translation *= Time.deltaTime;
 

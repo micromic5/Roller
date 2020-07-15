@@ -46,9 +46,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b07c49ad39d288c42bb1a1c5fc9202cb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  obstacle: {fileID: 2406162504123023532, guid: 5e81b3b2faa36214b89445c29491dd0f,
-    type: 3}
-  parentForObstacles: {fileID: 8850407049958791242}
+  objectToSpawn: {fileID: 0}
+  parentForSpawnedObject: {fileID: 8850407049958791242}
+  timeBetweenSpawn: 5
+  spawnTimer: 0
+  spawnTimeChanger: -0.1
+  spawnTimerRandomOffsetToZero: 0
 --- !u!1 &1994287594931057657
 GameObject:
   m_ObjectHideFlags: 0
