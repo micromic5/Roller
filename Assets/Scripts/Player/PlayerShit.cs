@@ -29,8 +29,8 @@ public class PlayerShit : MonoBehaviour
             if (kb.spaceKey.isPressed || shitButtonClicked)
             {
                 GetComponent<PlayerData>().getStomach().decreaseStomachValue(decreaseAmount);
-                GameObject spawnedObject = Instantiate(shit);
-                spawnedObject.transform.position = spawnPosition.position;
+                GameObject spawnedObject = Instantiate(shit, spawnPosition);
+                //spawnedObject.transform.position = spawnPosition.localPosition;
                 shitterCooldownCountDown = 0;
                 shitButtonClicked = false;
                 shitParticles.Play();

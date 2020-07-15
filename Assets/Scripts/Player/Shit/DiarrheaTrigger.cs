@@ -7,8 +7,8 @@ public class DiarrheaTrigger : MonoBehaviour
 {
     [SerializeField]
     private GameObject shitDecale;
-    private readonly static float baseTimeBetweenDiarrheaHits = .2f;
-    private float timeBetweenDiarrheaHits = .2f;
+    private readonly static float baseTimeBetweenDiarrheaHits = .05f;
+    private float timeBetweenDiarrheaHits = .05f;
     private readonly static float halfPersonHeight = 1.2f;
 
     void Update()
@@ -24,6 +24,7 @@ public class DiarrheaTrigger : MonoBehaviour
             if (other.tag != "Blocker" && other.tag != "Player" && other.tag != "People" && other.tag != "Shit")
             {
                 decale = instantiateDecale(transform.position);
+                decale.transform.Find("Plane").Rotate(0, Random.Range(0, 360), 0);
             }            
             timeBetweenDiarrheaHits = baseTimeBetweenDiarrheaHits;
         }        
