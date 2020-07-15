@@ -17,6 +17,7 @@ GameObject:
   - component: {fileID: 4809134669422843176}
   - component: {fileID: 5596518322837635504}
   - component: {fileID: 6184797604119310783}
+  - component: {fileID: 7936338923613083902}
   m_Layer: 0
   m_Name: Shit
   m_TagString: Shit
@@ -175,3 +176,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   selfDestructionTime: 2
+--- !u!114 &7936338923613083902
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1978807016212145553}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a3f05a8924536da4c9f4ff7279eace78, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speed: 1
+  direction: 1

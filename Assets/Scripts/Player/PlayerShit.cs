@@ -29,11 +29,11 @@ public class PlayerShit : MonoBehaviour
             if (kb.spaceKey.isPressed || shitButtonClicked)
             {
                 GetComponent<PlayerData>().getStomach().decreaseStomachValue(decreaseAmount);
-                GameObject spawnedObject = Instantiate(shit, spawnPosition);
-                //spawnedObject.transform.position = spawnPosition.localPosition;
+                GameObject spawnedObject = Instantiate(shit, spawnPosition);                
                 shitterCooldownCountDown = 0;
                 shitButtonClicked = false;
                 shitParticles.Play();
+                spawnedObject.transform.parent = null;
             }
           }
           shitterCooldownCountDown += Time.deltaTime;
