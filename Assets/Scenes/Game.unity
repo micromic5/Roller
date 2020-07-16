@@ -98,7 +98,7 @@ LightmapSettings:
     m_TrainingDataDestination: TrainingData
     m_LightProbeSampleCountMultiplier: 4
   m_LightingDataAsset: {fileID: 0}
-  m_UseShadowmask: 1
+  m_UseShadowmask: 0
 --- !u!196 &4
 NavMeshSettings:
   serializedVersion: 2
@@ -8706,7 +8706,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &871332914
 RectTransform:
   m_ObjectHideFlags: 0
@@ -15573,6 +15573,12 @@ PrefabInstance:
 --- !u!1 &1020551201 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 8433832775458365618, guid: 3b6f4380ea3c53c4da19905df508c834,
+    type: 3}
+  m_PrefabInstance: {fileID: 2019669465139177016}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &1020551202 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 9097603939994335752, guid: 3b6f4380ea3c53c4da19905df508c834,
     type: 3}
   m_PrefabInstance: {fileID: 2019669465139177016}
   m_PrefabAsset: {fileID: 0}
@@ -31683,7 +31689,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &2066458444
 RectTransform:
   m_ObjectHideFlags: 0
@@ -32895,6 +32901,11 @@ PrefabInstance:
       propertyPath: playerModel
       value: 
       objectReference: {fileID: 1020551201}
+    - target: {fileID: 2019669465407298288, guid: 3b6f4380ea3c53c4da19905df508c834,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2019669465407298290, guid: 3b6f4380ea3c53c4da19905df508c834,
         type: 3}
       propertyPath: stomachSlider
@@ -32905,6 +32916,26 @@ PrefabInstance:
       propertyPath: shitParticles
       value: 
       objectReference: {fileID: 1948580388}
+    - target: {fileID: 2019669465407298292, guid: 3b6f4380ea3c53c4da19905df508c834,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2019669465407298292, guid: 3b6f4380ea3c53c4da19905df508c834,
+        type: 3}
+      propertyPath: speed
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 2019669465407298292, guid: 3b6f4380ea3c53c4da19905df508c834,
+        type: 3}
+      propertyPath: text
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 2019669465407298292, guid: 3b6f4380ea3c53c4da19905df508c834,
+        type: 3}
+      propertyPath: playerModel
+      value: 
+      objectReference: {fileID: 1020551202}
     - target: {fileID: 2019669465407298299, guid: 3b6f4380ea3c53c4da19905df508c834,
         type: 3}
       propertyPath: m_Name

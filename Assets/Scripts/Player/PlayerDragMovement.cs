@@ -1,38 +1,29 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
 public class PlayerDragMovement : MonoBehaviour
 {
     private Vector3 position;
-    private float width;
-    private float height;
     [SerializeField]
-    private float speed = 10f;
-    private float maxLeft = -5.2f;
-    private float maxRight = 5.2f;
+    private float speed = 5f;
+    private static readonly float width = 4f;
+    [SerializeField]
+    private Transform playerModel;
+    private Camera camera;
+    private Vector2 pos;
 
-    void Awake()
+    private void Start()
     {
-        width = (float)Screen.width / 2.0f;
+        camera = Camera.main;
     }
-
     // Update is called once per frame
     void Update()
     {
         if (Input.touchCount > 0)
         {
             Touch touch = Input.GetTouch(0);
-
-            // Move the cube if the screen has the finger moving.
-           /* if (touch.phase == TouchPhase.Moved)
-            {*/
-                Vector2 pos = touch.position;
-                pos.x = ((pos.x - width) / width) * Time.deltaTime * speed;
-                pos.x = (pos.x < maxLeft) ? maxLeft : (pos.x > maxRight) ? maxRight : pos.x;
-                // Position the cube.
-                transform.Translate(pos.x, 0, 0);
-           // }
+            pos = camera.ScreenToViewportPoint(touch.position);
+            transform.position = new Vector3(Mathf.Lerp(transform.position.x, pos.x * width*2 - width, speed * Time.deltaTime), transform.position.y, transform.position.z);//Vector3.Slerp(transform.position, new Vector3(pos.x * 9 - 4.5f, transform.position.y, transform.position.z), speed * Time.deltaTime);
         }
     }
 }
