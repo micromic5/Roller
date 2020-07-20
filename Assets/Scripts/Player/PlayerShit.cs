@@ -6,7 +6,7 @@ using UnityEngine.InputSystem;
 public class PlayerShit : MonoBehaviour
 {
     [SerializeField]
-    private GameObject shit;
+    private GameObject shitGameObject;
     [SerializeField]
     private Transform spawnPosition;
     [SerializeField]
@@ -23,24 +23,29 @@ public class PlayerShit : MonoBehaviour
 
     // Update is called once per frame
       void Update()
-      {
-          if(shitterCooldownCountDown >= shitterCooldown)
-          {
-            if (kb.spaceKey.isPressed || shitButtonClicked)
-            {
+      {          
+          shitterCooldownCountDown += Time.deltaTime;
+        if (kb.spaceKey.isPressed)
+        {
+            shit();
+        }
+      }
+
+    public void shit()
+    {
+        if (shitterCooldownCountDown >= shitterCooldown)
+        {
                 GetComponent<PlayerData>().getStomach().decreaseStomachValue(decreaseAmount);
-                GameObject spawnedObject = Instantiate(shit, spawnPosition);                
+                GameObject spawnedObject = Instantiate(shitGameObject, spawnPosition);
                 shitterCooldownCountDown = 0;
                 shitButtonClicked = false;
                 shitParticles.Play();
                 spawnedObject.transform.parent = null;
-            }
-          }
-          shitterCooldownCountDown += Time.deltaTime;
-      }
+        }
+    }
 
-    public void setShitButtonClickeTrue()
+   /* public void setShitButtonClickeTrue()
     {
         shitButtonClicked = true;
-    }
+    }*/
 }

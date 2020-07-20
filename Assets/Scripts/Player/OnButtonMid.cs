@@ -9,6 +9,6 @@ public class OnButtonMid : MonoBehaviour
 
     public void onClick()
     {
-        player.GetComponent<PlayerShit>().setShitButtonClickeTrue();
+        player.GetComponent<PlayerShit>().shit();
     }
 }
