@@ -74,6 +74,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b862a6d57feb7994b8fc9fe55fa80282, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  increaseValueAmount: 22
 --- !u!114 &5230547518314411517
 MonoBehaviour:
   m_ObjectHideFlags: 0
