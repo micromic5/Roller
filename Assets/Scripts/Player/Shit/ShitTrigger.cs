@@ -12,31 +12,38 @@ public class ShitTrigger : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        GameObject decale;
-        if (other.tag != "Blocker" && other.tag != "Player" && other.tag != "People" && other.tag != "Shit")
+        if (shouldCollide(other.tag))
         {
-            decale = instantiateDecale(transform.position);
-            decale.transform.Find("Plane").Rotate(0, Random.Range(0, 360), 0);
-            instantiateDecale(calculateVectorWithRandomOffset(transform.position, .5f)).transform.Find("Plane").Rotate(0, Random.Range(0, 360), 0);
-            instantiateDecale(calculateVectorWithRandomOffset(transform.position, .5f)).transform.Find("Plane").Rotate(0, Random.Range(0, 360), 0); 
-            shouldDestroy = true;
+            GameObject decale;
+            if (other.tag != "Blocker" && other.tag != "Player" && other.tag != "People" && other.tag != "Shit")
+            {
+                decale = instantiateDecale(transform.position);
+                decale.transform.Find("Plane").Rotate(0, Random.Range(0, 360), 0);
+                instantiateDecale(calculateVectorWithRandomOffset(transform.position, .5f)).transform.Find("Plane").Rotate(0, Random.Range(0, 360), 0);
+                instantiateDecale(calculateVectorWithRandomOffset(transform.position, .5f)).transform.Find("Plane").Rotate(0, Random.Range(0, 360), 0);
+                shouldDestroy = true;
+            }
+            else if (other.tag == "People")
+            {
+                other.GetComponent<HitByShitHandler>().fire();
+                decale = instantiateDecale(calculateVectorWithRandomOffset(other.transform.position, 0.5f));
+                GameObject decale2 = instantiateDecale(calculateVectorWithRandomOffset(other.transform.position, 0.5f));
+                GameObject decale3 = instantiateDecale(calculateVectorWithRandomOffset(other.transform.position, 0.5f));
+                prepareDecaleOnPeople(decale);
+                prepareDecaleOnPeople(decale2);
+                prepareDecaleOnPeople(decale3);
+                shouldDestroy = true;
+            }
+            if (shouldDestroy)
+            {
+                GameObject.Destroy(gameObject);
+            }
         }
-        else if (other.tag == "People")
-        {
-            other.GetComponent<HitByShitHandler>().fire();
-            decale = instantiateDecale(calculateVectorWithRandomOffset(other.transform.position,0.5f));
-            GameObject decale2 = instantiateDecale(calculateVectorWithRandomOffset(other.transform.position, 0.5f));
-            GameObject decale3 = instantiateDecale(calculateVectorWithRandomOffset(other.transform.position, 0.5f));
-            prepareDecaleOnPeople(decale);
-            prepareDecaleOnPeople(decale2);
-            prepareDecaleOnPeople(decale3);
-            shouldDestroy = true;
-        }
-        if (shouldDestroy)
-        {
-            GameObject.Destroy(gameObject);
-        }
-                
+    }
+
+    private bool shouldCollide(string tag)
+    {
+        return !(tag == "Food" || tag == "Virus");
     }
 
     private GameObject instantiateDecale(Vector3 position)

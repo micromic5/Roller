@@ -11,7 +11,7 @@ public class PlayerShit : MonoBehaviour
     private Transform spawnPosition;
     [SerializeField]
     private ParticleSystem shitParticles;
-    private float shitterCooldown = 1f;
+    private float shitterCooldown = .7f;
     private float shitterCooldownCountDown = 0f;
     private int decreaseAmount = 10;
     private Keyboard kb;

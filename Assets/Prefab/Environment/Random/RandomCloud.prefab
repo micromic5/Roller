@@ -112,7 +112,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a3f05a8924536da4c9f4ff7279eace78, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 3
+  speed: 2
   direction: 0
 --- !u!114 &6592823937483770932
 MonoBehaviour:
@@ -140,4 +140,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 301f975914f5c24418e95a71290b8a5e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  selfDestructionTime: 20
+  selfDestructionTime: 30
