@@ -3,7 +3,7 @@ using UnityEngine.UI;
 
 public class Clock : MonoBehaviour
 {
-    private float timeFromStart = 60*80;
+    private float timeFromStart = 0f;
     private Text guiText;
     private int flooredFValue = 0;
     private int secondes;

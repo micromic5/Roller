@@ -12,7 +12,7 @@ public class PlayerControll : MonoBehaviour
     private Camera camera;
     private Vector2 pos;
     private PlayerShit playerShitScript;
-    private float MinPosYToShit = 0.15f;
+    private float MinPosYToShit = 0.25f;
 
     private void Start()
     {
