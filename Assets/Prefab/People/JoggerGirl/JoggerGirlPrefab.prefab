@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 8983701363198602027}
   - component: {fileID: 3875970852620895977}
   m_Layer: 0
-  m_Name: JoggerPrefab
+  m_Name: JoggerGirlPrefab
   m_TagString: People
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -96,6 +96,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 2615666699940742937}
     m_Modifications:
+    - target: {fileID: 1047186928842418462, guid: 3437f106d79f36d4abd141b874316df5,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: b295fb22d86413c47b19729b70362574, type: 2}
     - target: {fileID: 7368647178076837260, guid: 3437f106d79f36d4abd141b874316df5,
         type: 3}
       propertyPath: m_LocalPosition.x
