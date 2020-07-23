@@ -44,8 +44,6 @@ public class SpawnObject : MonoBehaviour
             {
                 timeBetweenSpawn += calculateSpawnTimeChange();
             }
-            Debug.Log("calcMin: "+calculateMinSpawnOffset());
-            Debug.Log("offsetmax: " + randomSpawnOffsetMax);
             spawnTimer = timeBetweenSpawn + Random.Range(calculateMinSpawnOffset(), randomSpawnOffsetMax);
         }
     }
