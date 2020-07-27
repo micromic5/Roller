@@ -14,6 +14,7 @@ public class StartButton : MonoBehaviour
     IEnumerator changeScene()
     {
         yield return new WaitForSeconds(6);
-        SceneManager.LoadScene("Game");
+        string sceneToLoad = Level.getLevel() == 3 ? "Level2" : "Game";
+        SceneManager.LoadScene(sceneToLoad);
     }
 }
