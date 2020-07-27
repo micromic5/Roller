@@ -8,14 +8,16 @@ public class Score : MonoBehaviour, EventHolder
     private int score = 0;
     private Text scoreTextField;
     private List<EventSubscriber> subcriberLitst = new List<EventSubscriber>();
+    private int level;
 
     private void Start()
     {
+        level = Level.getLevel();
         scoreTextField = GetComponent<Text>();
     }
     public void increaseScore(int amount)
     {
-        score += amount;
+        score += amount * level;
         scoreTextField.text = score.ToString();
         notifySubscribers();
     }

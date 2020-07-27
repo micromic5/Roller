@@ -11,6 +11,7 @@ public class ChangeSpeed : MonoBehaviour
     private float amountOfSpeedChange = 0.01f;
     [SerializeField]
     private float maxSpeed = 10f;
+    [SerializeField]
     private float currentSpeed = 0;
 
     void Start()
@@ -37,5 +38,19 @@ public class ChangeSpeed : MonoBehaviour
     public float getCurrentSpeed()
     {
         return currentSpeed;
+    }
+
+    public float getAamountOfSpeedChange() {
+        return amountOfSpeedChange;
+    }
+
+    public float getBaseTimeBetweenSpeedChanges()
+    {
+        return baseTimeBetweenSpeedChanges;
+    }
+
+    public void setCurrentSpeed(float speed)
+    {
+        currentSpeed = speed + currentSpeed > maxSpeed ? maxSpeed : speed + currentSpeed;
     }
 }

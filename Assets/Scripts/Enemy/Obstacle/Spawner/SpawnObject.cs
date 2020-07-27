@@ -57,4 +57,34 @@ public class SpawnObject : MonoBehaviour
     {
         return (timeBetweenSpawn >= spawnTimeChangeMin && timeBetweenSpawn <= spawnTimeChangeMax) ? spawnTimeChanger : 0;
     }
+
+    public float getTimeBetweenSpawn()
+    {
+        return timeBetweenSpawn;
+    }
+
+    public float getSpawnTimeChanger()
+    {
+        return spawnTimeChanger;
+    }
+
+    public void addToTimeBetweenSpawn(float newTimeBetweenSpawn)
+    {
+        timeBetweenSpawn += newTimeBetweenSpawn;
+        if(newTimeBetweenSpawn > 0)
+        {
+            if (timeBetweenSpawn > spawnTimeChangeMax)
+            {
+                timeBetweenSpawn = spawnTimeChangeMax;
+            }
+        }
+        else
+        {
+            if (timeBetweenSpawn < spawnTimeChangeMin)
+            {
+                timeBetweenSpawn = spawnTimeChangeMin;
+            }
+        }
+        
+    }
 }

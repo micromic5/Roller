@@ -23,11 +23,8 @@ public class ScoreChangeChildEnabler : MonoBehaviour, EventSubscriber
     public void reciveEvent()
     {
         if (score.getScore() >= scoreThatTriggersAction)
-        {   
-            foreach(Transform child in transform)
-            {
-                child.gameObject.SetActive(enableObject);
-            }            
+        {
+            GetComponent<ChildEnabler>().enableChilds(enableObject);
         }
     }
 
