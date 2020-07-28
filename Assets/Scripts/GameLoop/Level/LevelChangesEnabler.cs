@@ -20,7 +20,6 @@ public class LevelChangesEnabler : MonoBehaviour
 
     private IEnumerator makeChanges()
     {
-        yield return new WaitForSeconds(1);
         if (level == 2 && levelsThatActivateScript.Contains(2))
         {
             ScoreChangeChildEnabler scoreChangeChildEnablerScript = GetComponent<ScoreChangeChildEnabler>();
