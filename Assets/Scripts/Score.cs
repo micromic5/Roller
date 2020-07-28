@@ -12,7 +12,7 @@ public class Score : MonoBehaviour, EventHolder
 
     private void Start()
     {
-        level = Level.getLevel();
+        level = Level.getLevel() <= 1 ? 1 : Level.getLevel();
         scoreTextField = GetComponent<Text>();
     }
     public void increaseScore(int amount)
