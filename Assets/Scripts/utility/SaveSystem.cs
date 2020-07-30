@@ -2,9 +2,9 @@
 using UnityEngine;
 using System.Runtime.Serialization.Formatters.Binary;
 
-public class SaveSystem
+public static class SaveSystem
 {
-    private static string path = Application.persistentDataPath + "/score.pige";
+    private static string path = Application.persistentDataPath + "/data.pige";
     private static BinaryFormatter formatter = new BinaryFormatter();
 
     public static void saveData(SaveData saveData)
@@ -26,7 +26,7 @@ public class SaveSystem
         }
         else
         {
-            SaveData data = new SaveData(0);
+            SaveData data = new SaveData(0,AudioToggle.ON,IntroToggle.ON);
             saveData(data);
             return data;
         }
