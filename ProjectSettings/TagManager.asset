@@ -9,6 +9,7 @@ TagManager:
   - Blocker
   - Food
   - Virus
+  - CarParts
   layers:
   - Default
   - TransparentFX

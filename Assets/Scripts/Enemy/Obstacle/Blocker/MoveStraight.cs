@@ -45,4 +45,9 @@ public class MoveStraight : MonoBehaviour
     {
         speed = newSpeed;
     }
+
+    public Direction getDirection()
+    {
+        return direction;
+    }
 }

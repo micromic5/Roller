@@ -7,6 +7,8 @@ public class HitByShitHandler : MonoBehaviour
 {
     [SerializeField]
     private int pointsWorth = 5;
+    [SerializeField]
+    private bool triggerDeathAnimation = true;
     private static Score score;
     private static float ENVIRONMENT_SPEED = 3f;
     private void Start()
@@ -18,9 +20,17 @@ public class HitByShitHandler : MonoBehaviour
     }
     public void fire()
     {
-        score.increaseScore(pointsWorth);
-        GetComponent<MoveStraight>().setSpeed(ENVIRONMENT_SPEED);
+        score.increaseScore(pointsWorth);        
         GetComponent<CapsuleCollider>().enabled = false;
-        GetComponentInChildren<Animator>().SetBool("HitByShit" , true);
+        if (triggerDeathAnimation)
+        {
+            GetComponent<MoveStraight>().setSpeed(ENVIRONMENT_SPEED);
+            GetComponentInChildren<Animator>().SetBool("HitByShit", true);
+        }
+    }
+
+    public bool getTriggerDeathAnimation()
+    {
+        return triggerDeathAnimation;
     }
 }

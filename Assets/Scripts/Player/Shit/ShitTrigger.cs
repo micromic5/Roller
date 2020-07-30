@@ -14,24 +14,33 @@ public class ShitTrigger : MonoBehaviour
     {
         if (shouldCollide(other.tag))
         {
-            GameObject decale;
+            MoveStraight moveStraight = other.GetComponent<MoveStraight>();
+            GameObject decale = null;
+            GameObject decale2 = null;
+            GameObject decale3 = null;
             if (other.tag != "Blocker" && other.tag != "Player" && other.tag != "People" && other.tag != "Shit")
             {
-                decale = instantiateDecale(transform.position);
+                decale = instantiateDecale(transform.position, other);                
+                decale2 = instantiateDecale(calculateVectorWithRandomOffset(transform.position, .5f), other);
+                decale3 = instantiateDecale(calculateVectorWithRandomOffset(transform.position, .5f), other);
                 decale.transform.Find("Plane").Rotate(0, Random.Range(0, 360), 0);
-                instantiateDecale(calculateVectorWithRandomOffset(transform.position, .5f)).transform.Find("Plane").Rotate(0, Random.Range(0, 360), 0);
-                instantiateDecale(calculateVectorWithRandomOffset(transform.position, .5f)).transform.Find("Plane").Rotate(0, Random.Range(0, 360), 0);
+                decale2.transform.Find("Plane").Rotate(0, Random.Range(0, 360), 0);
+                decale3.transform.Find("Plane").Rotate(0, Random.Range(0, 360), 0);
                 shouldDestroy = true;
             }
             else if (other.tag == "People")
             {
                 other.GetComponent<HitByShitHandler>().fire();
-                decale = instantiateDecale(calculateVectorWithRandomOffset(other.transform.position, 0.5f));
-                GameObject decale2 = instantiateDecale(calculateVectorWithRandomOffset(other.transform.position, 0.5f));
-                GameObject decale3 = instantiateDecale(calculateVectorWithRandomOffset(other.transform.position, 0.5f));
-                prepareDecaleOnPeople(decale);
-                prepareDecaleOnPeople(decale2);
-                prepareDecaleOnPeople(decale3);
+                decale = instantiateDecale(calculateVectorWithRandomOffset(other.transform.position, 0.5f), other);
+                decale2 = instantiateDecale(calculateVectorWithRandomOffset(other.transform.position, 0.5f), other);
+                decale3 = instantiateDecale(calculateVectorWithRandomOffset(other.transform.position, 0.5f), other);
+                if (other.GetComponent<HitByShitHandler>().getTriggerDeathAnimation())
+                {
+                    prepareDecaleOnPeople(decale);
+                    prepareDecaleOnPeople(decale2);
+                    prepareDecaleOnPeople(decale3);
+                }
+                
                 shouldDestroy = true;
             }
             if (shouldDestroy)
@@ -46,10 +55,20 @@ public class ShitTrigger : MonoBehaviour
         return !(tag == "Food" || tag == "Virus");
     }
 
-    private GameObject instantiateDecale(Vector3 position)
+    private GameObject instantiateDecale(Vector3 position, Collider other)
     {
         GameObject decale = Instantiate(shitDecale);
         decale.transform.position = position;
+        if (other.tag == "CarParts")
+        {
+            MoveStraight moveStraight = other.GetComponentInParent<MoveStraight>();
+            float speed = moveStraight.getSpeed();
+            foreach (MoveStraight moveStraightScript in decale.GetComponents<MoveStraight>())
+            {
+                if (moveStraightScript.getDirection() == Direction.BACK)
+                    moveStraightScript.setSpeed(speed);
+            }
+        }
         return decale;
     }
 

@@ -38,11 +38,23 @@ public class DiarrheaTrigger : MonoBehaviour
             other.GetComponent<HitByShitHandler>().fire();
             decale = instantiateDecale(other.transform.position);
             Vector3 decalePosition = decale.transform.position;
-            decale.transform.position = new Vector3(decalePosition.x, decalePosition.y + halfPersonHeight, decalePosition.z);
+            decale.transform.position = new Vector3(decalePosition.x, decalePosition.y + halfPersonHeight, decalePosition.z);            
             foreach (MoveStraight moveStraight in decale.GetComponents<MoveStraight>().Where(moveStraight => moveStraight.getSpeed() == 0))
             {
                 moveStraight.setSpeed(1);
             }
+        }
+        if(other.tag == "CarParts")
+        {
+            GameObject decale;
+            MoveStraight moveStraight = other.GetComponentInParent<MoveStraight>();
+            decale = instantiateDecale(other.transform.position);
+            float speed = moveStraight.getSpeed();
+                foreach (MoveStraight moveStraightScript in decale.GetComponents<MoveStraight>())
+                {
+                    if (moveStraightScript.getDirection() == Direction.BACK)
+                        moveStraightScript.setSpeed(speed);
+                }
         }
     }
 
