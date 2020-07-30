@@ -98,7 +98,7 @@ LightmapSettings:
     m_TrainingDataDestination: TrainingData
     m_LightProbeSampleCountMultiplier: 4
   m_LightingDataAsset: {fileID: 0}
-  m_UseShadowmask: 1
+  m_UseShadowmask: 0
 --- !u!196 &4
 NavMeshSettings:
   serializedVersion: 2
@@ -7480,7 +7480,7 @@ PrefabInstance:
     - target: {fileID: 1116387807161793706, guid: e3fbfe5c570986e40967a6213528dd0b,
         type: 3}
       propertyPath: timeBetweenSpawn
-      value: 11.5
+      value: 12
       objectReference: {fileID: 0}
     - target: {fileID: 1116387807161793706, guid: e3fbfe5c570986e40967a6213528dd0b,
         type: 3}
@@ -7503,6 +7503,11 @@ PrefabInstance:
         type: 3}
       propertyPath: spawnTimeChanger
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1116387807161793706, guid: e3fbfe5c570986e40967a6213528dd0b,
+        type: 3}
+      propertyPath: spawnTimer
+      value: 5.8
       objectReference: {fileID: 0}
     - target: {fileID: 1994287594931057657, guid: e3fbfe5c570986e40967a6213528dd0b,
         type: 3}
@@ -32903,7 +32908,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!82 &1934506371
 AudioSource:
   m_ObjectHideFlags: 0

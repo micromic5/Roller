@@ -35,7 +35,7 @@ public class EndGame : MonoBehaviour, StomachSubscriber
 
             }            
             gameUI.SetActive(false);
-            
+            GameObject.Find("BackgroundMusic").SetActive(false);
             foreach (Transform transform in GetComponentsInChildren<Transform>(true))
             {
                 GameObject child = transform.gameObject;

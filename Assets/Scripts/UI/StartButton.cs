@@ -12,6 +12,7 @@ public class StartButton : MonoBehaviour
         if (introToggle == IntroToggle.ON)
         {
             GameObject.Find("Intro").GetComponent<ChildEnabler>().enableChilds(true);
+            GameObject.Find("BackgroundMusic").GetComponent<AudioSource>().volume = 0.1f;
         }        
         StartCoroutine(changeScene());
     }
