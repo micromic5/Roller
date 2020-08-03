@@ -10,6 +10,8 @@ public class EndGame : MonoBehaviour, StomachSubscriber
     [SerializeField]
     private GameObject gameUI;
     private static Score score;
+    [SerializeField]
+    private GameObject[] objectsToDisable;
 
     void Start()
     {
@@ -33,7 +35,11 @@ public class EndGame : MonoBehaviour, StomachSubscriber
                 saveData = new SaveData(currentScore);
                 SaveSystem.saveData(saveData);
 
-            }            
+            }
+            foreach (GameObject disable in objectsToDisable)
+            {
+                Destroy(disable);
+            }
             gameUI.SetActive(false);
             GameObject.Find("BackgroundMusic").SetActive(false);
             foreach (Transform transform in GetComponentsInChildren<Transform>(true))

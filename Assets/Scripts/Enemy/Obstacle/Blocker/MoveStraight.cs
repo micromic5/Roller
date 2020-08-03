@@ -9,7 +9,7 @@ public class MoveStraight : MonoBehaviour
     [SerializeField]
     private Direction direction = Direction.FRONT;
     // Update is called once per frame
-    void Update()
+    void FixedUpdate()
     {
         float translation = Time.deltaTime * speed;
 
