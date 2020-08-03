@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 public class Score : MonoBehaviour, EventHolder
 {
-    private int score = 800;
+    private int score = 0;
     private Text scoreTextField;
     private List<EventSubscriber> subcriberLitst = new List<EventSubscriber>();
     private int level;
