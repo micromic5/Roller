@@ -87,4 +87,9 @@ public class SpawnObject : MonoBehaviour
         }
         
     }
+
+    public void setSpawnTimer(float time)
+    {
+        spawnTimer = time;
+    }
 }

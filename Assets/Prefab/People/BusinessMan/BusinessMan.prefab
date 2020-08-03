@@ -138,6 +138,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   pointsWorth: 5
+  triggerDeathAnimation: 1
 --- !u!95 &3890781123066712032
 Animator:
   serializedVersion: 3
@@ -148,7 +149,7 @@ Animator:
   m_GameObject: {fileID: 6175728422035756114}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: aec8a6c478395244dbeb196bfbd88444, type: 2}
+  m_Controller: {fileID: 9100000, guid: 21471ad645954c545b0e3e6ab31d8871, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0

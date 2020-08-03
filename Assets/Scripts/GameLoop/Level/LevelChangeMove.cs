@@ -8,7 +8,12 @@ public class LevelChangeMove : MonoBehaviour
     {
         if(Level.getLevel() == 3)
         {
-            transform.position = new Vector3(transform.position.x, transform.position.y, transform.position.z + 70);
+            moveLevel();
         }
+    }
+
+    public void moveLevel()
+    {
+        transform.position = new Vector3(transform.position.x, transform.position.y, transform.position.z - 100);
     }
 }

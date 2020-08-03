@@ -34,10 +34,12 @@ public class LevelChangesEnabler : MonoBehaviour
             GetComponent<ChildEnabler>().enableChilds(true); // enables also child that are probably allready enabled of level 1 and 2, should be no problem
             if(name == "Level1")
             {
-                foreach (SpawnObject spawnObjectScript in GetComponentsInChildren<SpawnObject>())
-                {
-                    spawnObjectScript.enabled = false;
-                }
+                GameObject.Find("LevelChange").SetActive(false);
+                gameObject.SetActive(false);                
+            }
+            foreach (SpawnObject spawnObjectScript in GetComponentsInChildren<SpawnObject>())
+            {
+                spawnObjectScript.setSpawnTimer(Random.Range(0, 5));
             }
             yield return new WaitForSeconds(10);
             enabled = false;
