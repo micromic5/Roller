@@ -9,7 +9,10 @@ public class ChangeSoundAfterSeconds : MonoBehaviour
     float secondsTillAudiChange = 0f;
     private void Start()
     {
-        StartCoroutine(changeAudio());
+        if (Level.getLevel() == 3)
+        {
+            StartCoroutine(changeAudio());
+        }        
     }
 
 
