@@ -16,36 +16,41 @@ public class PlayerShit : MonoBehaviour
     private int decreaseAmount = 10;
     private Keyboard kb;
     private bool shitButtonClicked = false;
+    private AudioSource audioSource;
+    [SerializeField]
+    AudioClip[] poopSounds;
     private void Start()
     {
+        audioSource = GetComponent<AudioSource>();
         kb = InputSystem.GetDevice<Keyboard>();
     }
 
-    // Update is called once per frame
-      void Update()
-      {          
-          shitterCooldownCountDown += Time.deltaTime;
-        if (kb.spaceKey.isPressed)
-        {
-            shit();
-        }
-      }
+    void Update()
+    {          
+        shitterCooldownCountDown += Time.deltaTime;
+    if (kb.spaceKey.isPressed)
+    {
+        shit();
+    }
+    }
 
     public void shit()
     {
         if (shitterCooldownCountDown >= shitterCooldown)
         {
-                GetComponent<PlayerData>().getStomach().decreaseStomachValue(decreaseAmount);
-                GameObject spawnedObject = Instantiate(shitGameObject, spawnPosition);
-                shitterCooldownCountDown = 0;
-                shitButtonClicked = false;
-                shitParticles.Play();
-                spawnedObject.transform.parent = null;
+            GetComponent<PlayerData>().getStomach().decreaseStomachValue(decreaseAmount);
+            GameObject spawnedObject = Instantiate(shitGameObject, spawnPosition);
+            shitterCooldownCountDown = 0;
+            shitButtonClicked = false;
+            shitParticles.Play();
+            spawnedObject.transform.parent = null;
+            playRandomShitSound();
         }
     }
 
-   /* public void setShitButtonClickeTrue()
+    private void playRandomShitSound()
     {
-        shitButtonClicked = true;
-    }*/
+        audioSource.clip = poopSounds[Random.Range(0, poopSounds.Length - 1)];
+        audioSource.Play();
+    }
 }
