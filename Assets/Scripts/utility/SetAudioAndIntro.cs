@@ -14,7 +14,6 @@ public class SetAudioAndIntro : MonoBehaviour
 
     private void Start()
     {
-        /* TODO  braucht noch etwas arbeit*/
         startSaveData = SaveSystem.loadData();
         if (startSaveData.getIsSoundOn() == AudioToggle.OFF)
         {

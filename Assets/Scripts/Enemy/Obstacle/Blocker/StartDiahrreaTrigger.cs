@@ -2,11 +2,13 @@
 
 public class StartDiahrreaTrigger : MonoBehaviour
 {
+    private Transform diarrheaContainer = null;
+
     private void OnTriggerEnter(Collider other)
     {
         if (other.tag == "Player")
         {            
-            Transform diarrheaContainer = other.transform.Find("diarrhea");
+            diarrheaContainer = diarrheaContainer!=null?diarrheaContainer:other.transform.Find("diarrhea");
             foreach (Transform child in diarrheaContainer)
             {
                 child.gameObject.SetActive(false);

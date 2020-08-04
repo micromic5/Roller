@@ -17,7 +17,7 @@ public class MoveStraightLoop : MonoBehaviour
     private float speedBoost = 1;
     private float timeBetweenRandomJumps = 2;
     
-    void Update()
+    void FixedUpdate()
     {
         timeBetweenDirectionChanges -= Time.deltaTime;
         timeBetweenRandomJumps -= Time.deltaTime;
